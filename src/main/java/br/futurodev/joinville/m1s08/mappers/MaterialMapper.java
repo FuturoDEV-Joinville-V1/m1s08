@@ -19,7 +19,8 @@ public class MaterialMapper {
         return new MaterialResponseDto(
                 material.getId(),
                 material.getName(),
-                material.getDescription()
+                material.getDescription(),
+                CategoryMapper.toDto(material.getCategory())
         );
     }
 

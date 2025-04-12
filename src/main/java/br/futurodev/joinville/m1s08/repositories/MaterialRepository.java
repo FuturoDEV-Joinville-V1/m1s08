@@ -18,4 +18,11 @@ public interface MaterialRepository extends JpaRepository<Material, Long> {
             "   OR UPPER(m.description) LIKE '%'||UPPER(:search)||'%'")
     List<Material> findByNameOrDescription(String search);
 
+    // JPQL - Returning only name list
+    @Query("SELECT m.name " +
+            "FROM Material m " +
+            "WHERE UPPER(m.name) LIKE '%'||UPPER(:search)||'%'" +
+            "   OR UPPER(m.description) LIKE '%'||UPPER(:search)||'%'")
+    List<String> findNamesByNameOrDescription(String search);
+
 }

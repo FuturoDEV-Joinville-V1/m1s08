@@ -32,6 +32,11 @@ public class MaterialController {
         return service.create(dto);
     }
 
+    @PutMapping("{id}")
+    public MaterialResponseDto put(@PathVariable Long id, @RequestBody MaterialRequestDto dto) {
+        return service.update(id, dto);
+    }
+
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable Long id) {
